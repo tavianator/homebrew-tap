@@ -18,6 +18,6 @@ script:
   # This triggers "psych.bundle: [BUG] Segmentation fault"
   # - brew audit bfs --strict
 
-  - brew test -v bfs
+  - brew test -v --no-sandbox bfs
 
   - bfs --version
