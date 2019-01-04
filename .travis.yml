@@ -15,8 +15,7 @@ install:
 script:
   - brew install tavianator/tap/bfs
 
-  # This triggers "psych.bundle: [BUG] Segmentation fault"
-  # - brew audit bfs --strict
+  - brew audit bfs --strict
 
   - brew test -v --no-sandbox bfs
 
