@@ -1,12 +1,12 @@
 class Bfs < Formula
   desc "Breadth-first version of find."
   homepage "https://github.com/tavianator/bfs"
-  url "https://github.com/tavianator/bfs/archive/1.3.2.tar.gz"
-  sha256 "45939e6c1921c90e5f159407f877178cc9376dc66e808dbef80600d7624cbbc2"
+  url "https://github.com/tavianator/bfs/archive/1.3.3.tar.gz"
+  sha256 "b61ae66ae7b0d7a7220a2f8ef3b6121d8fb5d1d155bd03c7e7b0067d061ae8ab"
   head "https://github.com/tavianator/bfs.git"
 
   def install
-    system "make", "release"
+    system "make", "release", "tests/mksock"
 
     bin.install "bfs"
 
