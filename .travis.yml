@@ -14,9 +14,6 @@ install:
 
 script:
   - brew install tavianator/tap/bfs
-
   - brew audit bfs --strict
-
-  - brew test -v --no-sandbox bfs
-
+  - brew test -v bfs
   - bfs --version
