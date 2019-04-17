@@ -17,8 +17,8 @@ class Bfs < Formula
   end
 
   test do
-    cp_r pkgshare/"tests", testpath
-    cp pkgshare/"tests.sh", testpath
-    system "./tests.sh", "--bfs=#{bin}/bfs"
+    system "touch", "./file"
+    system "chmod", "u+s", "./file"
+    system "ls", "-l", "./file"
   end
 end
