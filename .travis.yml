@@ -15,5 +15,6 @@ install:
 script:
   - brew install tavianator/tap/bfs
   - brew audit bfs --strict
-  - brew test -v bfs
+  # See https://github.com/Homebrew/brew/issues/6019
+  - HOMEBREW_NO_SANDBOX=1 brew test -v bfs
   - bfs --version
