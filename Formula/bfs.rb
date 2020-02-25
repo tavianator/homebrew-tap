@@ -1,8 +1,8 @@
 class Bfs < Formula
   desc "Breadth-first version of find."
   homepage "https://github.com/tavianator/bfs"
-  url "https://github.com/tavianator/bfs/archive/1.5.2.tar.gz"
-  sha256 "f8779936f0d7ff5ce758db50d4921382b345ba13b1b6bf32bbc103a199934052"
+  url "https://github.com/tavianator/bfs/archive/1.6.tar.gz"
+  sha256 "8371720d620c3f90d81974e1aa0bfc6d82070aa286c9c39019f98f9ed59722fb"
   head "https://github.com/tavianator/bfs.git"
 
   def install
