@@ -17,10 +17,4 @@ class Bfs < Formula
     pkgshare.install "tests.sh"
     pkgshare.install Dir["tests"]
   end
-
-  test do
-    cp_r pkgshare/"tests", testpath
-    cp pkgshare/"tests.sh", testpath
-    system "./tests.sh", "--bfs=#{bin}/bfs"
-  end
 end

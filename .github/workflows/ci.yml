@@ -20,10 +20,13 @@ jobs:
           mkdir -p $(brew --repo)/Library/Taps/tavianator
           ln -s $GITHUB_WORKSPACE $(brew --repo)/Library/Taps/tavianator/homebrew-tap
 
-      - name: Run tests
+      - name: Install formula
         run: |
           brew install tavianator/tap/bfs
+
+      - name: Run tests
+        run: |
           brew audit bfs --strict
-          # See https://github.com/Homebrew/brew/issues/6019
-          HOMEBREW_NO_SANDBOX=1 brew test -v bfs
-          bfs --version
+          # Run this outside the sandbox, see https://github.com/Homebrew/brew/issues/6019
+          cd /usr/local/Cellar/bfs/*/share/bfs
+          ./tests.sh --bfs=bfs --verbose
