@@ -1,0 +1,29 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: macos-10.15
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          brew install coreutils
+
+      - name: Link repo
+        run: |
+          # Don't re-clone, inspired by
+          # https://github.com/neovim/homebrew-neovim/blob/master/.travis.yml
+          mkdir -p $(brew --repo)/Library/Taps/tavianator
+          ln -s $GITHUB_WORKSPACE $(brew --repo)/Library/Taps/tavianator/homebrew-tap
+
+      - name: Run tests
+        run: |
+          brew install tavianator/tap/bfs
+          brew audit bfs --strict
+          # See https://github.com/Homebrew/brew/issues/6019
+          HOMEBREW_NO_SANDBOX=1 brew test -v bfs
+          bfs --version
