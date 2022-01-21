@@ -29,4 +29,5 @@ jobs:
           brew audit bfs --strict
           # Run this outside the sandbox, see https://github.com/Homebrew/brew/issues/6019
           cd /usr/local/Cellar/bfs/*/share/bfs
-          ./tests.sh --bfs=bfs --verbose
+          # Work around https://github.com/actions/runner/issues/884
+          genv --default-signal=PIPE ./tests.sh --bfs=bfs --verbose
