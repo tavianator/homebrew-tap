@@ -4,6 +4,7 @@ class Bfs < Formula
   url "https://github.com/tavianator/bfs/archive/2.5.tar.gz"
   sha256 "410be5de74bfc5dece213731d3a8462310789118d299fb14f02bd9b0fdd66875"
   head "https://github.com/tavianator/bfs.git"
+  depends_on "oniguruma"
 
   def install
     system "make", "release", "all"
