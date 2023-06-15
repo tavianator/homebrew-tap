@@ -29,6 +29,6 @@ jobs:
           brew audit bfs --strict
           # Run this outside the sandbox, see https://github.com/Homebrew/brew/issues/6019
           git clone -b "$(bfs --version | sed -n 's/bfs //p')" https://github.com/tavianator/bfs
-          make -C bfs -j$(sysctl -n hw.ncpu) bin/tests/mksock
+          make -C bfs -j$(sysctl -n hw.ncpu) bin/tests/{mksock,xtouch}
           # Work around https://github.com/actions/runner/issues/884
           genv --default-signal=PIPE ./bfs/tests/tests.sh --bfs=bfs --sudo --verbose=skipped
